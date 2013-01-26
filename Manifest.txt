@@ -1,0 +1,7 @@
+ChangeLog
+History.rdoc
+Manifest.txt
+README.rdoc
+Rakefile
+lib/strelka/app/profiler.rb
+spec/strelka/app/profiler_spec.rb
