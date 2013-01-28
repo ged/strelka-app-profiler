@@ -23,15 +23,14 @@ module Strelka::App::Profiler
 
 	### Set up the profiler if the request includes a 'profile' parameter.
 	def fixup_request( request )
-		if request.params['profile']
-			RubyProf.start
-			request.notes[:profiling] = true
-		end
+		RubyProf.start if request.params['profile']
 
 		super
 	end
 
-	### Replace the body of the response with the profile body if profiling is enabled.
+
+	### Replace the body of the response with the profile body if the profiler
+	### is running.
 	def fixup_response( response )
 		if RubyProf.running?
 			profile = RubyProf.stop
